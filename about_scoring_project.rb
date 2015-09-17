@@ -32,15 +32,13 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 def score(dice)
   # You need to write this method
   sum_Score = 0
-  # if repeats are more or equal 3 AND they are all connected with the same number
-  if ((dice.size - dice.uniq.size) >= 3) and (__)
-    # refreshing the sum_Score
-    sum_Score += __
-    # droping those repeated numbers from the dice array
-    __
+  dice.uniq.each do |y|
+    if dice.count(y) >= 3
+      y == 1 ? sum_Score = 1000 : sum_Score = y * 100
+      3.times {dice.delete_at(dice.find_index {|x| x==y})}
+    end
   end
-  # adding to sum_Score points for ones & fives that were left
-  __
+  sum_Score += dice.count(1)*100 + dice.count(5)*50
   return sum_Score
 end
 
