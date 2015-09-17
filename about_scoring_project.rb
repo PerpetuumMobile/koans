@@ -36,6 +36,7 @@ def score(dice)
     if dice.count(y) >= 3
       y == 1 ? sum_Score = 1000 : sum_Score = y * 100
       3.times {dice.delete_at(dice.find_index {|x| x==y})}
+      break
     end
   end
   sum_Score += dice.count(1)*100 + dice.count(5)*50
