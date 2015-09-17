@@ -32,10 +32,12 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 def score(dice)
   # You need to write this method
   sum_Score = 0
+  dice = dice.sort
   dice.uniq.each do |y|
     if dice.count(y) >= 3
       y == 1 ? sum_Score = 1000 : sum_Score = y * 100
-      3.times {dice.delete_at(dice.find_index {|x| x==y})}
+      #3.times {dice.delete_at(dice.find_index {|x| x==y})}
+      dice[dice.find_index {|x| x==y}, 3] = []
       break
     end
   end
