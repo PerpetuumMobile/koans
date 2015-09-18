@@ -71,7 +71,7 @@ def score_alex1(dices)
 end
 
 def score_alex2(dices)
- 	faces = (1..6).to_a
+  faces = dices.uniq
 	sets = Points.keys.sort.reverse
 	faces.reduce(0) do |acc, face|
     	left = dices.count(face)
