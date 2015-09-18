@@ -91,10 +91,10 @@ time1 = Time.now
     6.times do |c|
       6.times do |d|
         6.times do |e|
-          6.times do |f|
-            6.times do |g|
-              6.times do |h|
-                score = [a+1, b+1, c+1, d+1, e+1, f+1, g+1, h+1]
+          6.times do
+            6.times do
+              6.times do
+                score = [a+1, b+1, c+1, d+1, e+1]
                 yield(score)
               end
             end
