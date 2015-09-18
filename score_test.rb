@@ -40,7 +40,7 @@ def score_mobil2(dice)
       count = dices.count(uniq_dice) / bonus_combo
       if count > 0
         sum_Score+=Points[bonus_combo].fetch(uniq_dice, 0) * count
-        dices[dices.find_index {|x| x==uniq_dice}, bonus_combo] = []
+        dices[dices.find_index {|x| x==uniq_dice}, bonus_combo * count] = []
       end
     end
   end
@@ -91,8 +91,14 @@ time1 = Time.now
     6.times do |c|
       6.times do |d|
         6.times do |e|
-          score = [a+1, b+1, c+1, d+1, e+1]
-          yield(score)
+          6.times do |f|
+            6.times do |g|
+              6.times do |h|
+                score = [a+1, b+1, c+1, d+1, e+1, f+1, g+1, h+1]
+                yield(score)
+              end
+            end
+          end
         end
       end
     end
